@@ -13,4 +13,7 @@
 
 
 
-/*CUSTOM STYLE BELOW THIS COMMENT
+/*CUSTOM STYLE BELOW THIS COMMENT*/
+.bg-primary {
+    background-color: var(--color-primary);
+}
