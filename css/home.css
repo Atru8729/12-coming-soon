@@ -22,7 +22,7 @@
     background-color: var(--color-secondary);
 }
 
-container.hero {
+.container.hero {
     padding-bottom: 25px;
 }
 
