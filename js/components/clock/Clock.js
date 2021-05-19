@@ -1,3 +1,7 @@
+<<<<<<< Updated upstream
+=======
+  
+>>>>>>> Stashed changes
 function Clock(selector) {
     const DOM = document.querySelector(selector);
     const timeValues = [432, 9, 37, 39];
