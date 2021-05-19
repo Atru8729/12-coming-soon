@@ -6,3 +6,6 @@ import { socialsData } from "./data/socialsData.js";
 // EXECUTION
 Clock('#clock_1');
 socials('footer .socials', socialsData);
+
+// EXECUTION
+Clock('#clock_1');
