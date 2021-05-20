@@ -12,6 +12,7 @@ function Clock(selector) {
     }
 
     DOM.innerHTML = HTML;
+  
 }
 
 export { Clock }
