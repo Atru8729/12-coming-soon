@@ -6,13 +6,13 @@ function Clock(selector) {
 
     for (let i = 0; i < timeValues.length; i++) {
         HTML += `<div class="time">
-                <div class="value">${timeValues[i]}</div>
-                <div class="label">${labelValues[i]}</div>
-            </div>`;
-}
+                    <div class="value">${timeValues[i]}</div>
+                    <div class="label">${labelValues[i]}</div>
+                </div>`;
+    }
 
     DOM.innerHTML = HTML;
-
+  
 }
 
 export { Clock }
