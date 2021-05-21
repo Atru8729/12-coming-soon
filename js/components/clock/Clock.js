@@ -49,8 +49,39 @@ class Clock {
         return updatedTime;
     }
 
+    calcDeadline() {
+        const dabartinisLaikas = new Date();
+        const einamiejiMetai = dabartinisLaikas.getFullYear();
+
+        let numanomaGimtadienioData = einamiejiMetai + '-' + this.targetDate;
+        let numanomasLaikas = new Date(numanomaGimtadienioData);
+
+        const dabartinesMilisekundes = dabartinisLaikas.getTime();
+        let numanomosMilisekundes = numanomasLaikas.getTime();
+
+        if (dabartinesMilisekundes > numanomosMilisekundes) {
+            numanomaGimtadienioData = (einamiejiMetai + 1) + '-' + this.targetDate;
+            numanomasLaikas = new Date(numanomaGimtadienioData);
+            numanomosMilisekundes = numanomasLaikas.getTime();
+        }
+
+        const likusiosMilisekundes = numanomosMilisekundes - dabartinesMilisekundes;
+        let likusiosSekundes = Math.floor(likusiosMilisekundes / 1000);
+
+        const dienos = Math.floor(likusiosSekundes / 60 / 60 / 24);
+        likusiosSekundes -= dienos * 60 * 60 * 24;
+
+        const valandos = Math.floor(likusiosSekundes / 60 / 60);
+        likusiosSekundes -= valandos * 60 * 60;
+
+        const minutes = Math.floor(likusiosSekundes / 60);
+        likusiosSekundes -= minutes * 60;
+
+        return [dienos, valandos, minutes, likusiosSekundes];
+    }
+
     render() {
-        const timeValues = this.formatTime([2, 9, 37, 39]);
+        const timeValues = this.formatTime(this.calcDeadline());
         const labelValues = ['Days', 'Hours', 'Minutes', 'Seconds'];
         let HTML = '';
 
