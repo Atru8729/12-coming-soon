@@ -142,3 +142,22 @@ footer.container {
 .bottom-texts a {
   color: var(--color-light);
 }
+
+ul {
+  list-style: none;
+}
+
+ul > li {
+  line-height: 20px;
+}
+
+ul > li::before {
+  display: inline-block;
+  content: '';
+  width: 20px;
+  height: 20px;
+  background-image: url(../img/check.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right: 10px;
+}
