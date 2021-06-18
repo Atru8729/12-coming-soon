@@ -110,14 +110,35 @@ footer.container {
   color: var(--color-primary);
 }
 
-.logo {
-  height: 60px;
-  object-fit: contain;
-  object-position: center;
+.bottom-texts {
+  display: flex;
+  flex-direction: column;
+  color: #fff8;
 }
 
+.big-logo {
+  text-align: center;
+  height: 50px;
+  object-fit: contain;
+  object-position: center;
+  margin: 20px 0;
+}
+
+.section-copyright {
+  font-size: 15px;
+  text-align: center;
+  justify-content: center;
+  line-height: 1.8em;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
 .bottom-description {
-  font-size: 18px;
-  color: var(--color-grey);
-  line-height: 1.7em;
+  font-size: 15px;
+  text-align: center;
+  line-height: 1.8em;
+}
+
+.bottom-texts a {
+  color: var(--color-light);
 }
