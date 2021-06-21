@@ -1,0 +1,7 @@
+.btn {
+  background-color: red;
+  line-height: 30px;
+  display: inline-block;
+  float: right;
+  padding: 0 10px;
+}

@@ -1,0 +1,20 @@
+form {
+  display: inline-block;
+  width: 100%;
+  flex-direction: column;
+  gap: 10px;
+}
+form > input {
+  width: 100%;
+  line-height: 30px;
+  border: none;
+  border-bottom: 3x solid red;
+  margin-bottom: 20px;
+}
+form > textarea {
+  width: 100%;
+  line-height: 30px;
+  border: none;
+  border-bottom: 3x solid red;
+  margin-top: 20px;
+}
