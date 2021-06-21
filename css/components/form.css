@@ -8,13 +8,13 @@ form > input {
   width: 100%;
   line-height: 30px;
   border: none;
-  border-bottom: 3x solid red;
+  border-bottom: 3px solid red;
   margin-bottom: 20px;
 }
 form > textarea {
   width: 100%;
   line-height: 30px;
   border: none;
-  border-bottom: 3x solid red;
+  border-bottom: 3px solid red;
   margin-top: 20px;
 }
