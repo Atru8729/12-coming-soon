@@ -8,6 +8,5 @@ import { socialsData } from "./data/socialsData.js";
 
 // EXECUTION
 new Clock('#clock_1', clockData);
-// new Clock(485545);
 socials('footer .socials', socialsData);
 new Progressbar('.left-column', progressBarData);
