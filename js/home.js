@@ -6,9 +6,12 @@ import { clockData } from "./data/clockData.js";
 import { progressBarData } from "./data/progressBarData.js";
 import { socialsData } from "./data/socialsData.js";
 import { SocialsOOP } from "./components/socials/SocialsOOP.js";
+import { Form } from "./components/form/Form.js";
 
 // EXECUTION
 new Clock('#clock_1', clockData);
 //socials('footer .socials', socialsData);
 new Progressbar('.left-column', progressBarData);
 new SocialsOOP('footer .socials', socialsData);
+new Form('.hero form');
+new Form('main form');
