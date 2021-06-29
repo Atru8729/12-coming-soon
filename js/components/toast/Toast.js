@@ -6,6 +6,9 @@ class Toast {
         this.messageDOM = null;
         this.closeDOM = null;
 
+        this.timer = null;
+        this.closeDelay = 5000;
+
         this.render();
         this.addEvents();
     }
@@ -41,10 +44,15 @@ class Toast {
         this.titleDOM.innerText = title;
 
         this.DOM.classList.remove('hide');
+
+        this.timer = setTimeout(() => {
+            this.hide();
+        }, this.closeDelay)
     }
 
     hide() {
         this.DOM.classList.add('hide');
+        clearTimeout(this.timer);
     }
 
     success(msg, title = 'Success!') {
