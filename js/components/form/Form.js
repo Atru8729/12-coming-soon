@@ -2,7 +2,7 @@ class Form {
     constructor(selector) {
         this.selector = selector;
 
-        this.DOM = null;
+        this.formDOM = null;
         this.allInputsDOM = [];
         this.submitButtonDOM = null;
         this.validations = {
@@ -15,28 +15,20 @@ class Form {
     }
 
     init() {
-        //patikrinti, ar validus selector
         if (!this.isValidSelector()) {
-            //jei ne, baigiam darba
             console.error('ERROR: nevalidus selector');
             return false;
         }
 
-        //susirasti formos DOM elementa
         this.formDOM = document.querySelector(this.selector);
-        //jei rasti nepavyksta, baigiam darba
         if (!this.formDOM) {
             console.error('ERROR: nerastas formos elementas');
             return false;
         }
 
-        //susirasti visus formos laukus: input, textarea
         this.allInputsDOM = this.formDOM.querySelectorAll('input, textarea');
-
-        //susirasti formos submit mygtuka
         this.submitButtonDOM = this.formDOM.querySelector('button[type="submit"]');
 
-        //uzregistruojame mygtuko paspaudimo ivyki
         this.addEvents();
     }
 
@@ -45,59 +37,52 @@ class Form {
     }
 
     isValidName(name) {
-
-        return true;
-    }
-    isValidEmail(name) {
-        return true;
-    }
-    isValidText(name) {
+        if (typeof name !== 'string' || name === '') {
+            return false;
+        }
         return true;
     }
 
-    isEmptyString(string) {
-        return typeof string !== || string === '';
+    isValidEmail(email) {
+        if (typeof email !== 'string' || email === '') {
+            return false;
+        }
+        return true;
+    }
+
+    isValidText(text) {
+        if (typeof text !== 'string' || text === '') {
+            return false;
+        }
+        return true;
     }
 
     addEvents() {
-        //submit mygtuko paspaudimo metu reikia isjungti default veikima
         this.submitButtonDOM.addEventListener('click', (event) => {
+            // submit mygtuko paspaudimo metu reikia isjungti default veikima
             event.preventDefault();
 
             // issitraukti is visu formos lauku informacija
-            //eiti per visus laukus ir atpazinus informacijos tipa, atlikti tos informacijos validacija
+            // eiti per visus laukus ir atpazinus informacijos tipa atlikti tos informacijos validacija
             let allGood = true;
 
             for (const inputDOM of this.allInputsDOM) {
                 const validationRule = inputDOM.dataset.validation;
-                if (validationRule === 'email' && this.isValidEmail(value)) {
+                const value = inputDOM.value;
+
+                if (!this.validations[validationRule](value)) {
                     allGood = false;
                     break;
-
                 }
-                if (validationRule === 'name' && this.isValidName(value)) {
-                    allGood = false;
-                    break;
-
-                }
-                if (validationRule === 'text' && this.isValidText(value)) {
-                    allGood = false;
-                    break;
-
-                }
-
-                console.log('All good', allGood);
             }
 
-        });
 
-
-
-        //jei patikrinus visus laukus, nerasta ne vienos klaidos, tai "siunciam pranesima"
-        //jei patikrinus visus laukus, rasta bent viena klaida, tai parodome visus klaidos pranesimus (kol kas viskas pateikiama i console)
-
+            // jei patikrinus visus laukus:
+            // nerasta nei vienos klaidos, tai "siunciam pranesima"
+            // nerasta bent viena klaida, tai parodome visu klaidos pranesimus (kol kas, viskas pateikiama i console)
+            console.log('All good:', allGood);
+        })
     }
-
 }
 
 export { Form }
