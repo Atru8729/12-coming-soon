@@ -4,7 +4,7 @@ class Progressbar {
         this.data = data;
 
         this.DOM = null;
-
+        this.allProgressBars = null;
         this.init();
     }
 
@@ -22,6 +22,7 @@ class Progressbar {
         }
 
         this.render();
+        this.addEvent();
 
     }
 
@@ -59,6 +60,24 @@ class Progressbar {
         }
 
         this.DOM.innerHTML += HTML;
+        this.allProgressBars = document.querySelectorAll(".progress-bar");
+    }
+    addEvent() {
+        window.addEventListener('scroll', () => {
+            //const windowSrollPosition = window.scrollY;
+            //const screenHeight = window.innerHeight;
+            const screenBottom = window.scrollY + window.innerHeight;
+            console.log('khkhkhh');
+
+            for (let i = 0; i < this.allProgressBars.length; i++) {
+                const element = this.allProgressBars[i];
+                const elementBottom = element.offsetHeight + element.offsetTop;
+                if (screenBottom >= elementBottom) {
+                    element.classList.add('loading');
+                    console.log('animuojame');
+                }
+            }
+        })
     }
 }
 
